@@ -1,0 +1,25 @@
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+n= int(input())
+ans_mat = ''.join(input().split())
+oppo= ''
+for i in range(len(ans_mat)-1, -1, -1):
+    if ans_mat[i] == '1':
+        oppo+='3'
+    elif ans_mat[i] == '2':
+        oppo+='4'
+    elif ans_mat[i] == '3':
+        oppo+='1'
+    else:
+        oppo+='2'
+ans_mat, oppo = ans_mat*2, oppo*2
+compare = int(input())
+ans = []
+for _ in range(compare):
+    compare = ''.join(input().split())
+    if compare in ans_mat or compare in oppo:
+        ans.append(compare)
+print(len(ans))
+for a in ans:
+    print(*a, end = ' ')
+    print()
